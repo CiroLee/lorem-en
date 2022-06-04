@@ -3,7 +3,7 @@ export interface ILoremEnConfig {
 }
 
 export interface INames {
-  range?: IRange;
+  range?: number | IRange;
   upper?: boolean;
 }
 
