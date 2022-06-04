@@ -1,5 +1,5 @@
 import { ILoremEnConfig, IRange } from './types';
-import { ALPHABET } from './constant';
+import { ALPHABET, ENGLISH_NAMES } from './constant';
 const MAX_LENGTH = ALPHABET.length;
 class LoremEn {
   public random: number;
@@ -77,6 +77,9 @@ class LoremEn {
       paragraph += this.sentence(this.randomLength(0, 2));
     }
     return paragraph;
+  }
+  name() {
+    return ENGLISH_NAMES[this.num([0, ENGLISH_NAMES.length - 1])];
   }
 }
 
