@@ -1,4 +1,4 @@
-import { ILoremEnConfig, IRange } from './types';
+import { ILoremEnConfig, IRange, INames } from './types';
 import { ALPHABET, ENGLISH_NAMES } from './constant';
 const MAX_LENGTH = ALPHABET.length;
 class LoremEn {
@@ -78,8 +78,17 @@ class LoremEn {
     }
     return paragraph;
   }
-  name() {
-    return ENGLISH_NAMES[this.num([0, ENGLISH_NAMES.length - 1])];
+  private oneName(upper?: boolean): string {
+    const name = ENGLISH_NAMES[this.num([0, ENGLISH_NAMES.length - 1])];
+    return upper ? name.replace(/^\S/, L => L.toUpperCase()) : name;
+  }
+  names(params?: INames): string {
+    const len = this.randomLength(params?.range);
+    let name = '';
+    for (let i = 0; i < len; i = i + 1) {
+      name += this.oneName(params?.upper) + ',';
+    }
+    return name.replace(/,$/g, '');
   }
 }
 
