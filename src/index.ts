@@ -74,7 +74,7 @@ class LoremEn {
     let paragraph = '';
     const len = this.randomLength(range);
     for (let i = 0; i < len; i = i + 1) {
-      paragraph += this.sentence(this.randomLength(0, 2));
+      paragraph += this.sentence(this.randomLength());
     }
     return paragraph;
   }

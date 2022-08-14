@@ -12,7 +12,6 @@ export default defineConfig((options: Options) => {
     watch: options.watch,
     clean: true,
     splitting: true,
-    sourcemap: options.sourcemap,
-    onSuccess: 'node lib/index.mjs',
+    sourcemap: options.sourcemap
   };
 });
